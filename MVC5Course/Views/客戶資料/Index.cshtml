@@ -4,15 +4,39 @@
     ViewBag.Title = "Index";
 }
 
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "/客戶資料/取得客戶分類",
+            datatype: "Json",
+            success: function (data) {
+                $.each(data, function (index, value) {
+                    $('#客戶分類').append('<option value="' + value.客戶分類 + '">' + value.客戶分類 + '</option>');
+                });
+            }
+        });
+    });
+</script>
+
 <h2>客戶資料</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<form action="CustomerInformation" method="post">
-    <input type="search" name="keyword" value="" />
+<form action="/客戶資料/Index" method="post">
+    <select name="客戶分類" id="客戶分類">
+        <option value=@ViewBag.客戶分類>@ViewBag.客戶分類</option>
+    </select>
+    <input type="search" name="keyword" value="@ViewBag.keyword" />
+    @*@Html.TextBox("keyword")*@
     <input type="submit" name="" value="搜尋" />
+</form>
+
+<form action="/客戶資料/匯出Excel" method="get">
+    <input type="submit" name="" value="匯出成 Excel" />
 </form>
 
 <table class="table">

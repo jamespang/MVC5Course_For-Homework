@@ -21,6 +21,20 @@ namespace MVC5Course.Models
 			return repository;
 		}		
 
+		public static 公司基本資料Repository Get公司基本資料Repository()
+		{
+			var repository = new 公司基本資料Repository();
+			repository.UnitOfWork = GetUnitOfWork();
+			return repository;
+		}
+
+		public static 公司基本資料Repository Get公司基本資料Repository(IUnitOfWork unitOfWork)
+		{
+			var repository = new 公司基本資料Repository();
+			repository.UnitOfWork = unitOfWork;
+			return repository;
+		}		
+
 		public static 客戶資料Repository Get客戶資料Repository()
 		{
 			var repository = new 客戶資料Repository();

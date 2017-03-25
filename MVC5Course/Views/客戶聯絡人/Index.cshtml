@@ -9,6 +9,13 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<form action="/客戶聯絡人/Index" method="get">
+    @*<input type="search" name="jobTitle" value="請輸入職稱" />*@
+    @Html.TextBox("jobTitle")
+    <input type="submit" value="搜尋" />
+</form>
+
 <table class="table">
     <tr>
         <th>

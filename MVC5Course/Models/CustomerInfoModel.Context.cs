@@ -30,5 +30,6 @@ namespace MVC5Course.Models
         public virtual DbSet<客戶銀行資訊> 客戶銀行資訊 { get; set; }
         public virtual DbSet<客戶聯絡人> 客戶聯絡人 { get; set; }
         public virtual DbSet<客戶資料清單> 客戶資料清單 { get; set; }
+        public virtual DbSet<公司基本資料> 公司基本資料 { get; set; }
     }
 }
